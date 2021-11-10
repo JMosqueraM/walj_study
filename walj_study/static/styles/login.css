@@ -1,0 +1,78 @@
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-image: url("../images/images_login/fondo.jpeg");
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: 1000px;
+
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 900px;      
+}
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+.container__form{
+    background-color: white;
+    border-radius: 15px;
+    padding: 40px;
+}
+img{
+    width: 100px;
+    height: 100px;
+    margin-left: 110px;
+}
+h2{
+    text-align: center;
+    
+}
+input{
+    display: block;
+    width: 300px;
+    height: 40px;
+    margin-bottom: 20px;
+    padding: 0 15px;
+    font-size: 18px;
+    outline: none;
+    border: none;
+    background: transparent;
+    border-bottom: 2px solid aqua;
+}
+.check{
+    width: 15px;
+    height: 15px;
+    display: inline;
+}
+label{
+    color: black;
+}
+a{
+    color: black;
+    text-decoration: none;
+    margin-left: 45px;
+}
+.boton{
+    width: 150px;
+    border-radius: 15px;
+    background-color: aqua;
+    margin-top: 30px;
+    border: none;
+    border-bottom: 4px solid aquamarine;
+    margin-left: 96px;
+}
+a:hover{
+    color: red;
+}
+label:hover{
+    color: rgb(8, 241, 8);
+}
+.boton:active{
+    background-color: orange;
+    width: 140px;
+}
+
+

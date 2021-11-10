@@ -1,0 +1,62 @@
+{% extends "base.html" %} {% block title %}Registro{% endblock %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/registro.css') }}">
+  <title>Registro Walj Study</title>
+</head>
+
+  <body>
+    <section class="form-register">
+      <h3>Walj Study</h3>
+      <form action="/registro" method ="POST">
+
+        <input 
+          class="form-control" 
+          type="text" 
+          id="nombre" 
+          name="nombre" 
+          placeholder="nombre completo" 
+          required
+        />
+        <input 
+          class="form-control" 
+          type="email" 
+          id="correo" 
+          name="correo" 
+          placeholder="correo electrónico"
+          required
+        />
+        <input 
+          class="form-control" 
+          type="password" 
+          id="Contraseña" 
+          name="Contraseña" 
+          placeholder="contraseña"
+          required
+          minlength="8"
+        />
+        
+        
+      <p> <input type="checkbox" id=condiciones required="required"> acepto las <a href="#">politicas de privacidad y condiciones de uso</a> </p>
+      <button type="submit" class="btn-primary">Registrarse</button>
+  </form>
+    <p>¿Tienes una cuenta?</p>
+    <button type="submit" class="btn-primary" onclick="location.href='/'">Iniciar sesión</button>   
+  </section>
+  </div>
+
+  <footer id="footer" class="footer">
+        Copyright &copy; Walj Study 2021.
+  </footer>
+    
+  </body>
+  </html>
+
+{% endblock %}

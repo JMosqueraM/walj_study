@@ -1,0 +1,36 @@
+{% extends "base.html" %} {% block title %}Pagina Repaso{% endblock %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/pagina_repaso.css') }}">
+    <title>Pagina de Repaso</title>
+    <h1>Pagina de Repaso</h1>
+
+</head>
+<body>
+    <h2>Pregunta #1</h2>
+    <hr>
+    <h3>El agua moja?</h3>
+    <p id="respuesta">
+        Si, efectivamente el agua moja
+    </p>
+    <br>
+    <button onclick="toggleText(); this.style.visibility='hidden'" id="mostrar_respuesta">Mostrar respuesta</button>
+    <p id="dificultad">
+        <button>Muy dificil (<1min)</button>
+        <button>Dificil (<5.5min)</button>
+        <button>Facil (<10min)</button>
+        <button>Muy facil (4d)</button>
+    </p>
+
+    <script type="text/javascript" src="../static/scripts/pagina_repaso.js"></script>
+</body>
+</html>
+
+{% endblock %}

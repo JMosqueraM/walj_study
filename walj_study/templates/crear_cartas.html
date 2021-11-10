@@ -1,0 +1,27 @@
+{% extends "base.html" %} {% block title %}Crear cartas{% endblock %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear cartas</title>
+    <h1>Crear cartas</h1>
+</head>
+<body>
+    <div>
+        <h3>Frente Carta</h3>
+        <textarea name="frente_carta" id="frente_carta" ></textarea>
+        <h3>Detras Carta</h3>
+        <textarea name="detras_carta" id="detras_carta"></textarea>
+        <br><br>
+        <button onclick="submit">Crear carta</button>
+    </div>
+    
+</body>
+</html>
+
+{% endblock %}

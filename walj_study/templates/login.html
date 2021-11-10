@@ -1,0 +1,35 @@
+{% extends "base.html" %} {% block title %}Login{% endblock %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel= "icon" type= "image/jpg" href= "../static/images/images_login/logo.png">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/login.css') }}">
+</head>
+<body> 
+    <div class="container">
+        <div class="container__form">
+            <img src="../static/images/images_login/logo.png" alt="esto es el Logo de la red social">
+            <h2>Iniciar Sesión</h2>
+            <form method="POST">  
+                <input type="email" id="correo" name="correo" placeholder="E-mail" required>
+                <input type="password" id="Contraseña" name="Contraseña" placeholder="Password" required>
+                <input class="check" type="checkbox" id="checkid" name="checkid">
+                <label for="checkid">Recuerdame</label>
+
+                <a href="#">¿Olvidaste tu contraseña?</a>
+                <input class="boton" type="submit">
+                <a class="confirmacion" href="#">¿Aún no tienes una cuenta?</a>
+                <input class="boton" type="submit" value="Registrate" onclick="location.href='/registro'">
+            </form>            
+        </div>
+    </div>
+</body>
+</html>
+
+{% endblock %}
