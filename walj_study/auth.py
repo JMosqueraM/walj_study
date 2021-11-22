@@ -20,39 +20,31 @@ def login():
         if user:
             if check_password_hash(user.password, password):
                 flash(f'Logueado exitosamente como {user.user_name}', category='success')
-                if checkid:
-                    login_user(user, remember=True)
-                    redirect(url_for('views.barajas'))                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+                login_user(user, remember=True)
+                redirect(url_for('views.barajas'))                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
 
+                result = db.engine.execute(
+                                            """
+                                        SELECT frente, detras
+                                        FROM carta
+                                        ORDER
+                                        BY id DESC
+                                            """
+                                    )
+            
+                response = make_response(render_template("barajas.html", posts=result, user=current_user))
+                response.set_cookie("user_id",
+                                    f"{user.id}",
+                                    secure=True)
+                response.set_cookie("baraja",
+                                    f"{0}",
+                                    secure=True)
 
-                    response = make_response(render_template("feed.html", user=current_user))                   
-                    response.set_cookie("user_id",
-                                        f"{user.id}",
-                                        secure=True)
-                    response.set_cookie("photo_user_name",
-                                        f"{user.user_name}",
-                                        secure=True)
-                    return response
-                else:
-                    login_user(user, remember = False)
-                    redirect(url_for('views.barajas'))
-
-
-                    response = make_response(render_template("barajas.html", user=current_user))
-                    redirect(url_for('views.barajas'))
-                    response.set_cookie("user_id",
-                                        f"{user.id}",
-                                        secure=True)
-                    response.set_cookie("photo_user_name",
-                                        f"{user.user_name}",
-                                        secure=True)
-                    return response
+                return response
             else:
-                flash('Contraseña incorrecta, intentelo de nuevo.', category='error')
-                return render_template("login.html", user=current_user)
+                flash('Incorrect password, try again.', category='error')
         else:
-            flash('El correo electronico no exite', category='error')
-        return render_template("login.html", user=current_user)
+            flash('Email does not exist.', category='error')
 
     return render_template("login.html", user=current_user) #Depending on the status of the current_user (signed in or not), the login button is displayed
 

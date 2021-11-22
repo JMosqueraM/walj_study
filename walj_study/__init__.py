@@ -56,69 +56,78 @@ def create_database(app):
 #   Aqui se definen los modelos para las tablas en la base de datos
 Base = declarative_base() 
 
-role_user = Table(
-    "role_user",
-    Base.metadata,
-    Column("id", Integer, ForeignKey("role.id")),
-    Column("id", Integer, ForeignKey("user.id")),
-)
+class Baraja(db.Model, UserMixin, Base):
+    __tablename__ = 'baraja'
+    id = db.Column(db.Integer, primary_key=True)
+    baraja_id1 = db.Column(db.Integer, db.ForeignKey('baraja1.id'))
+    baraja_id2 = db.Column(db.Integer, db.ForeignKey('baraja2.id'))
+    baraja_id3 = db.Column(db.Integer, db.ForeignKey('baraja3.id'))
+    baraja_id4 = db.Column(db.Integer, db.ForeignKey('baraja4.id'))
 
-user_post = Table(
-    "user_post",
-    Base.metadata,
-    Column("id", Integer, ForeignKey("user.id")),
-    Column("id", Integer, ForeignKey("post.id")),
-)
+class Baraja1(db.Model, UserMixin, Base):
+    __tablename__ = 'baraja1'
+    id = db.Column(db.Integer, primary_key=True)
+    nombre = db.Column(db.String(150))
+    carta_id = db.Column(db.Integer, db.ForeignKey('carta.id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    baraja_id = db.Column(db.Integer, db.ForeignKey('baraja.id'))
 
-user_comment = Table(
-    "user_comment",
-    Base.metadata,
-    Column("id", Integer, ForeignKey("user.id")),
-    Column("id", Integer, ForeignKey("comment.id")),
-)
+class Baraja2(db.Model, UserMixin, Base):
+    __tablename__ = 'baraja2'
+    id = db.Column(db.Integer, primary_key=True)
+    nombre = db.Column(db.String(150))
+    carta_id = db.Column(db.Integer, db.ForeignKey('carta.id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    baraja_id = db.Column(db.Integer, db.ForeignKey('baraja.id'))
 
-post_comment = Table(
-    "post_comment",
-    Base.metadata,
-    Column("id", Integer, ForeignKey("post.id")),
-    Column("id", Integer, ForeignKey("comment.id")),
-)
+class Baraja3(db.Model, UserMixin, Base):
+    __tablename__ = 'baraja3'
+    id = db.Column(db.Integer, primary_key=True)
+    nombre = db.Column(db.String(150))
+    carta_id = db.Column(db.Integer, db.ForeignKey('carta.id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    baraja_id = db.Column(db.Integer, db.ForeignKey('baraja.id'))
+
+class Baraja4(db.Model, UserMixin, Base):
+    __tablename__ = 'baraja4'
+    id = db.Column(db.Integer, primary_key=True)
+    nombre = db.Column(db.String(150))
+    carta_id = db.Column(db.Integer, db.ForeignKey('carta.id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    baraja_id = db.Column(db.Integer, db.ForeignKey('baraja.id'))
+
+class Carta(db.Model, UserMixin, Base):
+    __tablename__ = 'carta'
+    id = db.Column(db.Integer, primary_key=True)
+    frente = db.Column(db.String(10000))
+    detras = db.Column(db.String(10000))
+    dificultad = db.Column(db.Integer)
+    date = db.Column(db.DateTime(timezone=True), default=func.now())
+    baraja_id = db.Column(db.Integer, db.ForeignKey('baraja.id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    baraja1 = db.relationship('Baraja1')
+    baraja2 = db.relationship('Baraja2')
+    baraja3 = db.relationship('Baraja3')
+    baraja4 = db.relationship('Baraja4')
+
+class Note(db.Model, UserMixin, Base):   #Logic for the notes in the website (it's main purpose)
+    __tablename__ = 'note'   
+    id = db.Column(db.Integer, primary_key=True)
+    data = db.Column(db.String(10000))
+    date = db.Column(db.DateTime(timezone=True), default=func.now())
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))    #This user_id will be directly related to id integer attribute from the class User
+
 
 class User(db.Model, UserMixin, Base):
     __tablename__ = 'user'   
     id = db.Column(db.Integer, primary_key=True)
-    profile_photo = db.Column(db.String(150))
     email = db.Column(db.String(150), unique=True)  # Unique = True hace que no sea posible que dos usuarios tengan el mismo correo
-    user_name = db.Column(db.String(150))
     password = db.Column(db.String(150))
-    age = db.Column(db.String(3))
-    posts = relationship("Post", backref=backref("user"))
-    comments = db.relationship("Comment", backref=backref("user"))
-    role_id = db.Column(Integer, ForeignKey('role.id'))
+    user_name = db.Column(db.String(150))
+    cartas = db.relationship('Carta')
+    notes = db.relationship('Note')
+    baraja1 = db.relationship('Baraja1')
+    baraja2 = db.relationship('Baraja2')
+    baraja3 = db.relationship('Baraja3')
+    baraja4 = db.relationship('Baraja4')
     
-class Role(db.Model, UserMixin, Base):
-    __tablename__ = 'role'
-    id = db.Column(db.Integer, primary_key=True)
-    role = db.Column(db.String)
-    users = db.relationship("User", backref=backref("role"))
-
-
-class Post(db.Model, UserMixin, Base):
-    __tablename__ = 'post'
-    id = db.Column(db.Integer, primary_key=True)
-    photo = db.Column(db.String)
-    foot_note = db.Column(db.String)
-    post_date = db.Column(db.DateTime(timezone=True), default=func.now())
-    user_id = db.Column(db.Integer)
-    photo_user_name = db.Column(db.String, ForeignKey('user.user_name'))
-    comments = db.relationship("Comment", backref=backref("post"))
-
-class Comment(db.Model, UserMixin, Base):
-    __tablename__ = 'comment'
-    id = db.Column(db.Integer, primary_key=True)
-    post_id = db.Column(db.Integer, ForeignKey('post.id'))
-    comment = db.Column(db.String) 
-    user_id = db.Column(db.Integer, ForeignKey('user.id'))
-    date = db.Column(db.DateTime(timezone=True), default=func.now())
-    like = db.Column(db.Integer)
-

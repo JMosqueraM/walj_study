@@ -1,27 +1,202 @@
-{% extends "base.html" %} {% block title %}Inicio - Barajas{% endblock %}
+{% extends "base.html" %} {% block title %}Home{% endblock %}
 
 {% block content %}
-<html>
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Pagina de inicio</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Switcher</title>
+
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/main.css') }}">
 </head>
 <body>
-    <h1>Pagina de inicio</h1>
-    <hr>
-    <h2>Barajas</h2>
-    <ul>
-        <li>Baraja #1</li>
-        <li>Baraja #2</li>
-        <li>Baraja #3</li>
-    </ul>
-     
-     <textarea id="Nombre de nueva baraja" placeholder="Nombre de nueva baraja" name="barajas" ></textarea> 
-     <button type="submit">Crea tu baraja</button>
-     <br>
-     <a href="/pagina_repaso">Pagina de Repaso</a>
+    <header>
+        <nav>
+            <h1>Barajas</h1>
+            <ul class="tabs">
+                <li class="tab is-active">
+                   <a data-switcher data-tab="1">Baraja 1</a>
+                </li>
+                <li class="tab">
+                   <a data-switcher data-tab="2">Baraja 2</a>
+                </li>
+                <li class="tab">
+                   <a data-switcher data-tab="3">Baraja 3</a>
+                </li>
+                <li class="tab">
+                   <a data-switcher data-tab="4">Baraja 4</a>
+                </li> 
+            </ul>
+            
+        </nav>
+        
+    </header>
 
-</body>
+    <main>
+        <section class="pages">
+            <div class="valor_boton_estudio">
+                <form method="POST" action="{{ url_for('views.pagina_repaso') }}">
+                    <div align="left">
+                        <button type="submit" class="btn btn-info" value="1" name="valor_boton_estudio" id="valor_boton_estudio" onclick="">Estudiar Baraja Cargada </button>
+                    </div>
+                </form>
+            </div>
+            <div class="page is-active" data-page="1">
+                <h1 align="center">Baraja #1</h1>
+                <form method="POST">    <!-- This form will let the user add a note -->
+                    <h3>Frente</h3>
+                    <textarea name="frente" id="frente" class="form-control"></textarea>
+                    <br />
+                    <h3>Detras</h3>
+                    <textarea name="detras" id="detras" class="form-control"></textarea>
+                    <br />
+                    <div align="center">
+                        <button type="submit" class="btn btn-primary" value="1" name="valor_boton" id="valor_boton">Agregar Carta</button>
+                        <button type="submit" class="btn btn-success" value="1" id="cargar_baraja" name="cargar_baraja">Cargar baraja</button>
+                    </div>
+                </form>
+                <br>
+                <h3>Frente cartas</h3>
+                <ul class="list-group list-group-flush" id="cartas">
+                    {% for carta in user.cartas %}
+                    {% if carta.baraja_id == 1 %}
+                    <li class="list-group-item">{{ carta.frente }}
+                        <button type="button" class="close" onclick="deleteCarta({{ carta.id }})">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </li>
+                    {% endif %}
+                    {% endfor %}
+                </ul>
+                <h3>Detras cartas</h3>
+                <ul class="list-group list-group-flush" id="cartas">
+                    {% for carta in user.cartas %}
+                    {% if carta.baraja_id == 1 %}
+                    <li class="list-group-item">{{ carta.detras }}
+                        <button type="button" class="close" onclick="deleteCarta({{ carta.id }})">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </li>
+                    {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="page" data-page="2">
+                <h1 align="center">Baraja #2</h1>
+                <form method="POST">    <!-- This form will let the user add a note -->
+                    <h3>Frente</h3>
+                    <textarea name="frente" id="frente" class="form-control"></textarea>
+                    <br />
+                    <h3>Detras</h3>
+                    <textarea name="detras" id="detras" class="form-control"></textarea>
+                    <br />
+                    <div align="center">
+                        <button type="submit" class="btn btn-primary" value="2" name="valor_boton" id="valor_boton">Agregar Carta</button>
+                        <button type="submit" class="btn btn-success" value="2" id="cargar_baraja" name="cargar_baraja">Cargar baraja</button>
+                    </div>
+                </form>
+                <br>
+                <h3>Frente cartas</h3>
+                {% for carta in user.cartas %}
+                {% if carta.baraja_id == 2 %}
+                <li class="list-group-item">{{ carta.frente }}
+                    <button type="button" class="close" onclick="deleteCarta({{ carta.id }})">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </li>
+                {% endif %}
+                {% endfor %}
+                <h3>Detras cartas</h3>
+                {% for carta in user.cartas %}
+                {% if carta.baraja_id == 2 %}
+                <li class="list-group-item">{{ carta.detras }}
+                    <button type="button" class="close" onclick="deleteCarta({{ carta.id }})">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </li>
+                {% endif %}
+                {% endfor %}
+            </div>
+            <div class="page" data-page="3">
+                <h1 align="center">Baraja #3</h1>
+                <form method="POST">    <!-- This form will let the user add a note -->
+                    <h3>Frente</h3>
+                    <textarea name="frente" id="frente" class="form-control"></textarea>
+                    <br />
+                    <h3>Detras</h3>
+                    <textarea name="detras" id="detras" class="form-control"></textarea>
+                    <br />
+                    <div align="center">
+                        <button type="submit" class="btn btn-primary" value="3" name="valor_boton" id="valor_boton">Agregar Carta</button>
+                        <button type="submit" class="btn btn-success" value="3" id="cargar_baraja" name="cargar_baraja">Cargar baraja</button>
+                    </div>
+                </form>
+                <br>
+                <h3>Frente cartas</h3>
+                {% for carta in user.cartas %}
+                {% if carta.baraja_id == 3 %}
+                <li class="list-group-item">{{ carta.frente }}
+                    <button type="button" class="close" onclick="deleteCarta({{ carta.id }})">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </li>
+                {% endif %}
+                {% endfor %}
+                <h3>Detras cartas</h3>
+                {% for carta in user.cartas %}
+                {% if carta.baraja_id == 3 %}
+                <li class="list-group-item">{{ carta.detras }}
+                    <button type="button" class="close" onclick="deleteCarta({{ carta.id }})">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </li>
+                {% endif %}
+                {% endfor %}
+            </div>
+            <div class="page" data-page="4">
+                <h1 align="center">Baraja #4</h1>
+                <form method="POST">    <!-- This form will let the user add a note -->
+                    <h3>Frente</h3>
+                    <textarea name="frente" id="frente" class="form-control"></textarea>
+                    <br />
+                    <h3>Detras</h3>
+                    <textarea name="detras" id="detras" class="form-control"></textarea>
+                    <br />
+                    <div align="center">
+                        <button type="submit" class="btn btn-primary" value="4" name="valor_boton" id="valor_boton">Agregar Carta</button>
+                        <button type="submit" class="btn btn-success" value="4" id="cargar_baraja" name="cargar_baraja">Cargar baraja</button>
+                    </div>
+                </form>
+                <br>
+                <h3>Frente cartas</h3>
+                {% for carta in user.cartas %}
+                {% if carta.baraja_id == 4 %}
+                <li class="list-group-item">{{ carta.frente }}
+                    <button type="button" class="close" onclick="deleteCarta({{ carta.id }})">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </li>
+                {% endif %}
+                {% endfor %}
+                <h3>Detras cartas</h3>
+                {% for carta in user.cartas %}
+                {% if carta.baraja_id == 4 %}
+                <li class="list-group-item">{{ carta.detras }}
+                    <button type="button" class="close" onclick="deleteCarta({{ carta.id }})">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </li>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </section>
+    </main>
+
+    <script type="text/javascript" src="../static/scripts/main.js"></script>
+    <script type="text/javascript" src="../static/scripts/index.js"></script>
 </body>
 </html>
-
 {% endblock %}

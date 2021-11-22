@@ -8,28 +8,55 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/pagina_repaso.css') }}">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/pagina_repaso.css') }}">
     <title>Pagina de Repaso</title>
     <h1>Pagina de Repaso</h1>
 
 </head>
-<body>
-    <h2>Pregunta #1</h2>
-    <hr>
-    <h3>El agua moja?</h3>
-    <p id="respuesta">
-        Si, efectivamente el agua moja
-    </p>
+<body id="general">
     <br>
+    {% set i = contador %}
+    {% if i >= lista_frente|length %}
+    <h3 id="pregunta">¡Felicitaciones!</h3>
+    <li class="list-group-item" id="respuesta">
+        <p>¡Has terminado todas las preguntas!</p>
+        <form method="GET" action="{{ url_for('views.barajas') }}">
+            <button type="submit">Volver a Barjas</button>
+        </form>
+    </li>
+    {% else %}
+    <h3 id="pregunta">{{ lista_frente[i] }}</h3>
+    <li class="list-group-item" id="respuesta">
+        <p>{{ lista_detras[i] }}</p>
+    </li>
+    
+    
+    
+    
     <button onclick="toggleText(); this.style.visibility='hidden'" id="mostrar_respuesta">Mostrar respuesta</button>
-    <p id="dificultad">
-        <button>Muy dificil (<1min)</button>
-        <button>Dificil (<5.5min)</button>
-        <button>Facil (<10min)</button>
-        <button>Muy facil (4d)</button>
-    </p>
+    
+    <form id="dificultad" method="POST" action="{{ url_for('views.pagina_repaso') }}" >
+
+    {% if carta.baraja_id == baraja %}
+    {% for i in range(1) %}
+        <div align="center">
+            <button type="submit" value="4" name="muy_dificil" id="muy_dificil" onclick="cambiarDificultad({{ carta.id }})" >Muy Dificil (<1min)</button>
+            <button type="submit" value="3" name="dificil" id="dificil" onclick="cambiarDificultad({{ carta.id }})">Dificil (<1min)</button>
+            <button type="submit" value="2" name="facil" id="facil" onclick="cambiarDificultad({{ carta.id }})">Facil (<1min)</button>
+            <button type="submit" value="1" name="muy_facil" id="muy_facil" onclick="cambiarDificultad({{ carta.id }})">Muy Facil (<1min)</button>
+        </div>
+        {% for carta in user.cartas %}
+        {% endfor %}
+        {% endfor %}
+        {% endif %}
+        {% endif %}
+    </form>
+
+    
+
 
     <script type="text/javascript" src="../static/scripts/pagina_repaso.js"></script>
+    <script type="text/javascript" src="../static/scripts/index.js"></script>
 </body>
 </html>
 
