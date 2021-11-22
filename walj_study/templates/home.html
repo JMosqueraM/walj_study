@@ -1,7 +1,7 @@
 {% extends "base.html" %} {% block title %}notas{% endblock %}
 
 {% block content %}
-<h1 align="center">Notes</h1>
+<h1 align="center">Notas</h1>
 <ul class="list-group list-group-flush" id="notes">
     {% for note in user.notes %}
     <li class="list-group-item">{{ note.data }}
