@@ -9,38 +9,92 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tutorial</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/tutorial.css') }}">
+
 </head>
 <body>
 <h1>Tutorial</h1>
 <p>En este apartado encontrara información relacionada a las caracteristicas y funcionamiento del programa</p>
 
 <ul class="navbar">
-    <li><a href="#pagina_de_inicio">Pagina de Inicio</a></li>
+    <li><a href="#barajas">Barajas</a></li>
     <li><a href="#crear_cartas">Crear cartas</a></li>
     <li><a href="#pagina_repaso">Página Repaso</a></li>
-    <li><a href="#estadisticas_page">Estadisticas</a></li>
+    <li><a href="#notas">Notas</a></li>
 </ul>
 
-<a name="Pagina de Inicio" id="pagina_de_inicio"></a>
-<h2>Página de Inicio</h2>
-<img src="https://scontent-bog1-1.xx.fbcdn.net/v/t1.6435-9/69573433_1325428084286422_4684965874258411520_n.png?_nc_cat=104&ccb=1-5&_nc_sid=730e14&_nc_eui2=AeGaZ_4Vzmr6UuHzswJCLM26wVqExLqS1KjBWoTEupLUqAJcKVI9UESOVWernAo0HIxflZLLIBQQngvzDD9Bp-ql&_nc_ohc=4GvzvncnacwAX8-3Kq5&_nc_ht=scontent-bog1-1.xx&oh=8fd48a03a8706da2e0e8007f19bc94a0&oe=61B19800" alt="#1">
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio quidem animi temporibus ducimus nam recusandae in aspernatur doloribus et illum mollitia doloremque fugit aperiam iusto est, explicabo nulla atque? Repellendus.</p>
+<a name="barajas" id="barajas"></a>
+<h2 >Barajas</h2>
+<img src="../static/images/images_tutorial/tutorial_barajas.png" alt="Tutorial Barajas 1" width="100%" height="550em" >
+<ol>
+    <li>Este nombre le indica en que baraja se encuentra.</li>
+    <li>La barra de navegacion para las cuatro barajas que posee permite al usuario administrar sus barajas.</li>
+    <li>El boton le permite cargar la información de la baraja.</li>
+    <li>El boton le permite estudiar la baraja previamente seleccionada.</li>
+    <li>Debajo de su respectivo titulo se encontrara la parte delantera y trasera de cada carta.</li>
+</ol>
+
 
 <a name="Crear cartas" id="crear_cartas"></a>
 <h2>Crear cartas</h2>
-<img src="https://scontent-bog1-1.xx.fbcdn.net/v/t1.6435-9/69573433_1325428084286422_4684965874258411520_n.png?_nc_cat=104&ccb=1-5&_nc_sid=730e14&_nc_eui2=AeGaZ_4Vzmr6UuHzswJCLM26wVqExLqS1KjBWoTEupLUqAJcKVI9UESOVWernAo0HIxflZLLIBQQngvzDD9Bp-ql&_nc_ohc=4GvzvncnacwAX8-3Kq5&_nc_ht=scontent-bog1-1.xx&oh=8fd48a03a8706da2e0e8007f19bc94a0&oe=61B19800" alt="#1">
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus maiores numquam, eligendi, eos perspiciatis quidem neque atque minima necessitatibus dolor voluptatibus unde totam in quia? Omnis excepturi expedita earum laudantium.</p>
+<img src="../static/images/images_tutorial/tutorial_cartas1.png" alt="Tutorial Cartas 1" width="100%" height="550em" >
+<ol>
+    <li>Dentro de esta area de texto se digita la informacion que se desea guardar como el <b>FRENTE</b> de la carta.</li>
+    <li>Dentro de esta area de texto se digita la informacion que se desea guardar como el <b>DETRAS</b> de la carta.</li>
+    <li>El boton le permite <b>agregar la carta</b> a la baraja seleccionada.</li>
+</ol>
+
+
+<br>
+<img src="../static/images/images_tutorial/tutorial_cartas2.png" alt="Tutorial Cartas 2" width="100%" height="550em" >
+<ul>
+    <li>En el espacio señalado se encontrara la parte delantera y trasera de cada carta.</li>
+</ul>
 
 <a name="Página Repaso" id="pagina_repaso"></a>
 <h2>Página Repaso</h2>
-<img src="https://scontent-bog1-1.xx.fbcdn.net/v/t1.6435-9/69573433_1325428084286422_4684965874258411520_n.png?_nc_cat=104&ccb=1-5&_nc_sid=730e14&_nc_eui2=AeGaZ_4Vzmr6UuHzswJCLM26wVqExLqS1KjBWoTEupLUqAJcKVI9UESOVWernAo0HIxflZLLIBQQngvzDD9Bp-ql&_nc_ohc=4GvzvncnacwAX8-3Kq5&_nc_ht=scontent-bog1-1.xx&oh=8fd48a03a8706da2e0e8007f19bc94a0&oe=61B19800" alt="#1">
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat, asperiores. In a nemo asperiores ad suscipit harum esse dolore et iusto hic! Nisi animi quos deleniti saepe dolor sit ut.</p>
+<img src="../static/images/images_tutorial/tutorial_paginarepaso1.png" alt="Tutorial Pagina Repaso 1" width="100%" height="550em" >
+<ol>
+    <li>El boton le permite cargar la información de la baraja seleccionada.</li>
+    <li>El boton le permite estudiar la baraja seleccionada.</li>
+</ol>
+<br>
 
-<a name="Estadisticas" id="estadisticas_page"></a>
-<h2>Estadisticas</h2>
-<img src="https://scontent-bog1-1.xx.fbcdn.net/v/t1.6435-9/69573433_1325428084286422_4684965874258411520_n.png?_nc_cat=104&ccb=1-5&_nc_sid=730e14&_nc_eui2=AeGaZ_4Vzmr6UuHzswJCLM26wVqExLqS1KjBWoTEupLUqAJcKVI9UESOVWernAo0HIxflZLLIBQQngvzDD9Bp-ql&_nc_ohc=4GvzvncnacwAX8-3Kq5&_nc_ht=scontent-bog1-1.xx&oh=8fd48a03a8706da2e0e8007f19bc94a0&oe=61B19800" alt="#1">
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab cum nesciunt fugiat quisquam, placeat eveniet architecto dolore blanditiis iure necessitatibus adipisci sequi laudantium sit quaerat neque temporibus ut beatae saepe.</p>
+<img src="../static/images/images_tutorial/tutorial_paginarepaso2.png" alt="Tutorial Pagina Repaso 2" width="100%" height="550em" >
+<ol>
+    <p>3. El boton muestra la <b>respuesta</b> correspondiente a la pregunta (parte trasera).</p>
+    <p>4. En esta seccion se muestra la <b>pregunta</b> de la carta (parte delantera.)</p>
+
+</ol>
+<br>
+
+<img src="../static/images/images_tutorial/tutorial_paginarepaso3.png" alt="Tutorial Pagina Repaso 3" width="100%" height="550em" >
+<ol>
+    <p>5. Luego de haber oprimido el boton señalado en la seccion 3, en esta area se mostrara la <b>respuesta</b> correspondiente a la pregunta (parte trasera).</p>
+    <p>6. Los botones ubicados en esta barra permitiran calificar la dificultad de la <b>pregunta</b> de la (parte delantera de la carta.)</p> 
+</ol>
+<br>
+
+
+<a name="Notas" id="notas"></a>
+<h2>Notas</h2>
+<img src="../static/images/images_tutorial/tutorial_notas1.png" alt="Tutorial Pagina Repaso 3" width="100%" height="550em" >
+<ol>
+    <li>Dentro de esta area de texto se digita la informacion que se desea guardar en la nota</li>
+    <li>Haciendo uso de este boton se ingresa y se guarda la nota.</li>
+
+</ol>
+<br>
+<img src="../static/images/images_tutorial/tutorial_notas2.png" alt="Tutorial Pagina Repaso 3" width="100%" height="550em" >
+<ol>
+    <p>3. En esta seccion se mostraran sus notas en orden cronologico (de creacion mas antigua a mas reciente)</p>
+
+</ol>
+<br>
+<nav class="pepe">
+    <a id="volver_al_inicio" name="volver_al_inicio" type="button" class="btn btn-info" href="/tutorial">Volver al inicio</a>
+</nav>
+
 </body>
 </html>
 

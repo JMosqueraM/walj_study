@@ -1,0 +1,9 @@
+h2 {
+    position:sticky;
+    align-self: center;
+    left: 50%;
+    right: 50%;
+    font-weight: bold;
+    font-size: 300%;
+
+}
