@@ -1,10 +1,7 @@
-# walj_study
-Este repositorio contiene los archivos correspondientes al software de estudio de repeticion espaciada WALJ-Study
-
 # Proyecto WALJ study
 #### realizado por: 
 ##### Alejandro Acosta
-##### Willington Andres
+##### Willington Andres Niño
 ##### Jose Miguel Mosquera
 ##### Angel Stiven Hernández
 ##### Laura Camila López
@@ -13,9 +10,9 @@ Este repositorio contiene los archivos correspondientes al software de estudio d
 # universidad EAN
 
    
-### ¿Cuál es nuestro proyecto?
+### ¿Qué es nuestro proyecto?
 Nuestro proyecto es una página web que se encarga de combatir está curva del olvido por la cual la gran mayoría de adolescentes ya sea en el colegio la universidad o en el trabajo pasamos, está página web nos da la oportunidad de ya sea impedir que se nos olvide alguna información que necesitemos o estudiar algo que necesitáramos aprender.
-La idea es que se puedan crear mazos, borrar, crear preguntas con respuestas y utilizar las diferentes funcionalidades con que cuenta. Es un repaso en donde los usuarios pueden encontrar diferentes interrogantes de forma que su avance se muestre en una gráfica.
+La idea es que se puedan crear mazos, borrar, crear preguntas con respuestas y utilizar las diferentes funcionalidades con que cuenta. Es un repaso en donde los usuarios pueden encontrar diferentes interrogantes de forma que fortalezcan sus conocimientos.
 
 ### ¿En qué se basa nuestro proyecto?
 Nuestro proyecto está basado en la problemática del olvido que estudian las investigaciones sobre la curva del olvido, donde se plantea la memorización de conocimientos mediante el método de la repetición, y se busca evitar el olvido de los conocimientos aplicando técnicas de aprendizaje eficientes.
@@ -27,7 +24,7 @@ Nuestro proyecto busca funcionar como una herramienta de estudio que esté al al
 Lo realizamos trabajando en equipo con ayuda de diferentes herramientas y librerías adicionando la idea central de combatir está curva del olvido
 
 ### ¿Cómo funciona?
-El usuario primero tendrá que registrarse y guardar sus credenciales en la plataforma,  luego creará una baraja de cartas sobre algún tema que desee estudiar, en donde cada carta será una pregunta que puede ser de opción múltiple o pregunta abierta, el usuario digitara las preguntas y respuestas en cada carta y posteriormente guardará la baraja. Cuando la persona quiera estudiar abrirá la baraja y se le mostrará la pregunta de cada carta, una vez se responda la pregunta se escogerá la dificultad de la pregunta para el usuario según su criterio, fácil, medio o difícil, en donde si la calificación es difícil , se le preguntara de nuevo al usuario en un corto lapso de tiempo, para que el usuario pueda volver a estudiarla, y si es muy fácil significa que no se olvidará en un largo periodo de tiempo, entonces la plataforma la volverá a preguntar mucho después.
+El usuario primero tendrá que registrarse y guardar sus credenciales en la plataforma,  luego creará una baraja de cartas sobre algún tema que desee estudiar, en donde cada carta será una pregunta abierta, el usuario digitara las preguntas y respuestas en cada carta y posteriormente guardará la baraja. Cuando la persona quiera estudiar abrirá la baraja y se le mostrará la pregunta de cada carta, una vez se responda la pregunta se escogerá la dificultad de la pregunta para el usuario según su criterio, fácil, medio o difícil, en donde si la calificación es difícil , se le preguntara de nuevo al usuario en un corto lapso de tiempo, para que el usuario pueda volver a estudiarla, y si es muy fácil significa que no se olvidará en un largo periodo de tiempo, entonces la plataforma la volverá a preguntar mucho después.
 
 ### ¿Qué programas utiliza?
 #### VISUAL STUDIO CODE
